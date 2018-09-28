@@ -33,6 +33,26 @@ def self.map_items(data)
 end
 
 # save
+def save()
+  sql = "
+  INSERT INTO films( title, price )
+  VALUES( $1, $2)
+  RETURNING id
+  ;"
+
+  values = [@title, @price]
+
+  result = SqlRunner.run(sql,values)
+
+# i seem to forget to do this part.
+  #pick the first (and only) item out of the hash that's returned
+  result_hash = result[0]
+  # out of it, grab the id value and set that to a variable
+  string_id = result_hash["id"]
+  # convert it to an interger and save it as the id
+  @id = string_id.to_i
+
+end
 
 # read all
 

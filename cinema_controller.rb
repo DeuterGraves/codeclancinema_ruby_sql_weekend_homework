@@ -24,6 +24,8 @@ film1 = Film.new({
   })
 
 
+film1.save()
+
 
   # set up and save tickets
 ticket1 = Ticket.new({
