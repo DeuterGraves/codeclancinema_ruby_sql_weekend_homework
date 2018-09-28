@@ -100,5 +100,9 @@ def customers()
   Customer.map_items(result)
 end
 
+#number of customers going to see the film.
+def customer_count()
+  customers().count()
+end
 #end class
 end
