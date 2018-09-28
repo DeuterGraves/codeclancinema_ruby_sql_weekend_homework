@@ -17,17 +17,53 @@ customer1 = Customer.new({
   "funds" => 50
   })
 
+customer2 = Customer.new({
+  "name" => "Susie Broadreach",
+  "funds" => 20
+  })
+
+customer3 = Customer.new({
+  "name" => "David Sunderlund",
+  "funds" => 40
+  })
+
 
 customer1.save()
+customer2.save()
+customer3.save()
 
   # build and save films
 film1 = Film.new({
   "title" => "Charlie and the Chocolate Factory",
+  "price" => 1
+  })
+
+film2 = Film.new({
+  "title" => "The Lost Boys",
   "price" => 2
+  })
+
+film3 = Film.new({
+  "title" => "Baby Driver",
+  "price" => 5
+  })
+
+film4 = Film.new({
+  "title" => "Night School",
+  "price" => 10
+  })
+
+film5 = Film.new({
+  "title" => "Crazy Rich Asians",
+  "price" => 10
   })
 
 
 film1.save()
+film2.save()
+film3.save()
+film4.save()
+film5.save()
 
 
   # set up and save tickets
@@ -36,8 +72,50 @@ ticket1 = Ticket.new({
   "film_id" => film1.id
   })
 
+ticket2 = Ticket.new({
+  "customer_id" => customer1.id,
+  "film_id" => film2.id
+  })
+
+ticket3 = Ticket.new({
+  "customer_id" => customer2.id,
+  "film_id" => film3.id
+  })
+
+ticket4 = Ticket.new({
+  "customer_id" => customer2.id,
+  "film_id" => film4.id
+  })
+
+ticket5 = Ticket.new({
+  "customer_id" => customer3.id,
+  "film_id" => film5.id
+  })
+
+ticket6 = Ticket.new({
+  "customer_id" => customer3.id,
+  "film_id" => film1.id
+  })
+
+ticket7 = Ticket.new({
+  "customer_id" => customer2.id,
+  "film_id" => film5.id
+  })
+
+ticket8 = Ticket.new({
+  "customer_id" => customer1.id,
+  "film_id" => film4.id
+  })
+
 
 ticket1.save
+ticket2.save
+ticket3.save
+ticket4.save
+ticket5.save
+ticket6.save
+ticket7.save
+ticket8.save
 
 binding.pry
 puts "Well, whadda ya know?!"

@@ -57,9 +57,7 @@ end
 
 def self.find_all()
   sql = " SELECT * from films;"
-
   data = SqlRunner.run(sql)
-
   Film.map_items(data)
 end
 

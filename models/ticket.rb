@@ -28,7 +28,7 @@ end
 # map_items
 
 def self.map_items(data)
-  result = data.map{|customer| Customer.new(customer) }
+  result = data.map{|ticket| Ticket.new(ticket) }
   return result
 end
 
@@ -43,15 +43,18 @@ def save()
 
   result = SqlRunner.run(sql, values)
 
-#ok. here we go. get the only thing from the result
   result_hash = result[0]
-  #now grab the data stored in 'id'
   string_id = result_hash["id"]
-  # and save it to the id variable as an integer
   @id = string_id.to_i
 end
 
 # read all
+
+def self.find_all()
+  sql = "SELECT * from tickets;"
+  data = SqlRunner.run(sql)
+  Ticket.map_items(data)
+end
 
 # update
 

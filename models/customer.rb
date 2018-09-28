@@ -54,6 +54,12 @@ end
 
 # read all
 
+def self.find_all()
+  sql = "SELECT * from customers;"
+  data = SqlRunner.run(sql)
+  Customer.map_items(data)
+end
+
 # update
 
 # delete item
