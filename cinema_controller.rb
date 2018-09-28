@@ -123,8 +123,11 @@ customer1.name = "Rebecca Broadport"
 customer1.update()
 customer2.name = "Susie Davenreach"
 customer2.update()
-ticket4.film_id = 69
-ticket4.update()
+# ticket4.film_id = 69
+# # ticket4.update()
+# film2.delete()
+# ticket8.delete()
+# customer2.delete()
 
 binding.pry
 puts "Well, whadda ya know?!"

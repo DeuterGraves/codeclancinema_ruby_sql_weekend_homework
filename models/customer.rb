@@ -74,7 +74,13 @@ def update()
 end
 
 # delete item
+def delete()
+  sql = "DELETE from customers
+  Where id = $1"
 
+  values = [@id]
+  SqlRunner.run(sql, values)
+end
 #.films booked (list)
 
 # buy ticket (funds decrease)

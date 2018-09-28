@@ -75,6 +75,13 @@ def update()
 end
 
 # delete item
+def delete()
+  sql = "DELETE from films
+  Where id = $1"
+
+  values = [@id]
+  SqlRunner.run(sql, values)
+end
 
 #end class
 end
