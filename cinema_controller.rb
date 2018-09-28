@@ -119,10 +119,10 @@ ticket8.save
 
 film1.title = "Caddyshack"
 film1.update()
-customer1.name = "Rebecca Broadport"
-customer1.update()
-customer2.name = "Susie Davenreach"
-customer2.update()
+# customer1.name = "Rebecca Broadport"
+# customer1.update()
+# customer2.name = "Susie Davenreach"
+# customer2.update()
 # ticket4.film_id = 69
 # # ticket4.update()
 # film2.delete()
@@ -133,6 +133,9 @@ p film1.customers()
 p film5.customers()
 p customer3.films()
 p customer2.films()
+
+# customer1.pays_for_ticket(film1)
+# customer1.buys_ticket(film5)
 
 binding.pry
 puts "Well, whadda ya know?!"

@@ -94,9 +94,32 @@ def films()
 
 end
 
-# buy ticket (funds decrease)
+# funds decrease
 
-# how many .tickets purchased
+def pays_for_ticket(film)
+  # find the price
+  value = film.price
+  # find the funds
+  # this is being called ON customer so just call it's parameter directly.
+  wallet = @funds
+  #subtract price from funds
+  remaining_funds = wallet -= value
+  # update funds locally
+  @funds = remaining_funds
+  # update funds in db
+  update()
+end
+
+# buy ticket - funds decrease ticket created.... ooooooo
+
+def buys_ticket(film)
+  pays_for_ticket(film)
+  ticket = Ticket.new({"customer_id" => @id,
+    "film_id" => film.id})
+    ticket.save()
+end
+
+# how many .tickets purchased - returns a number. oooo array length
 
 
 
