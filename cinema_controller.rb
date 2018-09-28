@@ -117,5 +117,14 @@ ticket6.save
 ticket7.save
 ticket8.save
 
+film1.title = "Caddyshack"
+film1.update()
+customer1.name = "Rebecca Broadport"
+customer1.update()
+customer2.name = "Susie Davenreach"
+customer2.update()
+ticket4.film_id = 69
+ticket4.update()
+
 binding.pry
 puts "Well, whadda ya know?!"

@@ -58,6 +58,17 @@ end
 
 # update
 
+def update()
+  sql = "UPDATE tickets
+  SET (customer_id, film_id)
+  = ($1, $2)
+  WHERE id = $3;"
+
+  values = [@customer_id, @film_id, @id]
+
+  SqlRunner.run(sql, values)
+end
+
 # delete item
 
 # end class
