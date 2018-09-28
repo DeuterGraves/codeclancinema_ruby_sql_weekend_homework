@@ -129,5 +129,10 @@ customer2.update()
 # ticket8.delete()
 # customer2.delete()
 
+p film1.customers()
+p film5.customers()
+p customer3.films()
+p customer2.films()
+
 binding.pry
 puts "Well, whadda ya know?!"
