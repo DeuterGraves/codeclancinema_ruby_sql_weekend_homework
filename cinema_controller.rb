@@ -1,5 +1,6 @@
 require_relative("./models/customer.rb")
 require_relative("./models/film.rb")
+require_relative("./models/ticket.rb")
 require("pry")
 
 # delete customers
@@ -22,9 +23,12 @@ film1 = Film.new({
 
 
   # set up and save tickets
+ticket1 = Ticket.new({
+  "customer_id" => customer1.id,
+  "film_id" => film1.id
+  })
 
 
 
-
-  binding.pry
-  puts "Well, whadda ya know?!"
+binding.pry
+puts "Well, whadda ya know?!"

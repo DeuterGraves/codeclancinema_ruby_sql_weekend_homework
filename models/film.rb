@@ -11,5 +11,5 @@ def initialize(options)
   @price = options["price"].to_i
 end
 
-  #end class
+#end class
 end
