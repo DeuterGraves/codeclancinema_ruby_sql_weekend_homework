@@ -13,12 +13,12 @@ Ticket.delete_all()
 # build and save customers
 
 customer1 = Customer.new({
-  "name" => "Rebecca Davenport",
+  "name" => "Rebecca Broadport",
   "funds" => 50
   })
 
 customer2 = Customer.new({
-  "name" => "Susie Broadreach",
+  "name" => "Susie Davenreach",
   "funds" => 20
   })
 
@@ -119,10 +119,10 @@ ticket8.save
 
 film1.title = "Caddyshack"
 film1.update()
-# customer1.name = "Rebecca Broadport"
-# customer1.update()
-# customer2.name = "Susie Davenreach"
-# customer2.update()
+customer1.name = "Rebecca Davenport"
+customer1.update()
+customer2.name = "Susie Broadreach"
+customer2.update()
 # # ticket4.film_id = 69
 # # ticket4.update()
 # film2.delete()
@@ -134,7 +134,7 @@ p film5.customers()
 p customer3.films()
 p customer2.films()
 
-binding.pry 
+binding.pry
 # # customer1.pays_for_ticket(film1)
 customer1.buys_ticket(film5)
 
