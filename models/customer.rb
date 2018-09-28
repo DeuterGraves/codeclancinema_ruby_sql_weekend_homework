@@ -11,6 +11,32 @@ def initialize(options)
   @funds = options["funds"].to_i
 end
 
+# delete all
+
+def self.delete_all()
+  sql = "DELETE from customers;"
+  SqlRunner.run(sql)
+end
+
+
+# hash_result
+
+# map_items
+
+# save
+
+# read all
+
+# update
+
+# delete item
+
+#.films booked (list)
+
+# buy ticket (funds decrease)
+
+# how many .tickets purchased
+
 
 
 # end class

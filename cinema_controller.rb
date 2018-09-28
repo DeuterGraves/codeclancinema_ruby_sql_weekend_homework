@@ -4,8 +4,11 @@ require_relative("./models/ticket.rb")
 require("pry")
 
 # delete customers
+Customer.delete_all()
 # delete films
+Film.delete_all()
 # delete tickets
+Ticket.delete_all()
 
 # build and save customers
 

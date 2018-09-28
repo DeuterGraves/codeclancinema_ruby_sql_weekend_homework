@@ -11,5 +11,25 @@ def initialize(options)
   @price = options["price"].to_i
 end
 
+# delete all
+
+def self.delete_all()
+  sql = "DELETE from films;"
+  SqlRunner.run(sql)
+end
+
+
+# hash_result
+
+# map_items
+
+# save
+
+# read all
+
+# update
+
+# delete item
+
 #end class
 end

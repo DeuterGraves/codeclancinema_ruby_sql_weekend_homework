@@ -11,5 +11,24 @@ def initialize(options)
   @film_id = options["film_id"].to_i
 end
 
+# delete all
+
+def self.delete_all()
+  sql = "DELETE from tickets;"
+  SqlRunner.run(sql)
+end
+
+# hash_result
+
+# map_items
+
+# save
+
+# read all
+
+# update
+
+# delete item
+
 # end class
 end
