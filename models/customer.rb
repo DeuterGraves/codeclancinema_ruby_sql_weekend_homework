@@ -21,7 +21,17 @@ end
 
 # hash_result
 
+def self.hash_result(data)
+  customer_hash = data[0]
+  customer = Customer.new(customer_hash)
+end
+
 # map_items
+
+def self.map_items(data)
+  result = data.map{|customer| Customer.new(customer) }
+  return result
+end
 
 # save
 
