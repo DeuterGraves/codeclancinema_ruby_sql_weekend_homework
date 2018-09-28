@@ -120,8 +120,13 @@ def buys_ticket(film)
 end
 
 # how many .tickets purchased - returns a number. oooo array length
+# can be done w/o db but above - we've bought a ticket and that titcket doesn't really exist in ruby, and if it gets purchased multiple times, it will throw all the numbers off.
 
-
+def tickets_purchased()
+  #called on customer so
+  # customer.films.count basically.
+  films().count()
+end
 
 # end class
 end
