@@ -17,6 +17,9 @@ customer1 = Customer.new({
   "funds" => 50
   })
 
+
+customer1.save()
+
   # build and save films
 film1 = Film.new({
   "title" => "Charlie and the Chocolate Factory",
@@ -34,6 +37,7 @@ ticket1 = Ticket.new({
   })
 
 
+ticket1.save
 
 binding.pry
 puts "Well, whadda ya know?!"

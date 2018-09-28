@@ -34,6 +34,23 @@ def self.map_items(data)
 end
 
 # save
+def save()
+  sql = "
+  INSERT INTO customers(name, funds)
+  VALUES($1, $2)
+  RETURNING id;"
+
+  values = [@name, @funds]
+
+  result = SqlRunner.run(sql, values)
+
+#ok. here we go. get the only thing from the result
+  result_hash = result[0]
+  #now grab the data stored in 'id'
+  string_id = result_hash["id"]
+  # and save it to the id variable as an integer
+  @id = string_id.to_i
+end
 
 # read all
 

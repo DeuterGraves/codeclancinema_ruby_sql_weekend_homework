@@ -28,7 +28,7 @@ end
 # map_items
 
 def self.map_items(data)
-  result = data.map{|customer| Customer.new(customer) }
+  result = data.map{|film| Film.new(film) }
   return result
 end
 
@@ -37,8 +37,7 @@ def save()
   sql = "
   INSERT INTO films( title, price )
   VALUES( $1, $2)
-  RETURNING id
-  ;"
+  RETURNING id;"
 
   values = [@title, @price]
 
@@ -55,6 +54,14 @@ def save()
 end
 
 # read all
+
+def self.find_all()
+  sql = " SELECT * from films;"
+
+  data = SqlRunner.run(sql)
+
+  Film.map_items(data)
+end
 
 # update
 
