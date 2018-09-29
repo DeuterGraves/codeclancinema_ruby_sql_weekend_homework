@@ -21,8 +21,8 @@ end
 # hash_result
 
 def self.hash_result(data)
-  customer_hash = data[0]
-  customer = Customer.new(customer_hash)
+  film_hash = data[0]
+  film = Film.new(film_hash)
 end
 
 # map_items
