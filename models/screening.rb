@@ -3,12 +3,13 @@ require_relative("../db/sql_runner.rb")
 class Screening
 
   attr_reader(:id)
-  attr_accessor(:film_id, :show_time, :capacity)
+  attr_accessor(:film_id, :show_time, :price, :capacity)
 
 def initialize(options)
   @id = options["id"].to_i
   @film_id = options["film_id"].to_i
   @show_time = options["show_time"]
+  @price = options["price"].to_i
   @capacity = options["capacity"].to_i
   # will want to move price here and remove it from film -- matinees will be cheaper than evening shows
 end
@@ -24,7 +25,7 @@ end
 
 def self.hash_result(data)
   screening_hash = data[0]
-  screening = Customer.new(screening_hash)
+  screening = Screening.new(screening_hash)
 end
 
 # map_items
@@ -37,11 +38,11 @@ end
 # save
 
 def save()
-  sql =  "INSERT INTO screenings (film_id, show_time, capacity)
-  VALUES ($1, $2, $3)
+  sql =  "INSERT INTO screenings (film_id, show_time, price, capacity)
+  VALUES ($1, $2, $3, $4)
   RETURNING id;"
 
-  values = [@film_id, @show_time, @capacity]
+  values = [@film_id, @show_time, @price, @capacity]
 
   result = SqlRunner.run(sql, values)
   result_hash = result[0]
@@ -61,11 +62,11 @@ end
 
 def update()
  sql = "UPDATE screenings
- SET( film_id, show_time, capacity)
- = ($1, $2, $3)
- Where id = $4;"
+ SET( film_id, show_time, price, capacity)
+ = ($1, $2, $3, $4)
+ Where id = $5;"
 
- values = [@film_id, @show_time, @capacity, @id]
+ values = [@film_id, @show_time, @price, @capacity, @id]
 
  SqlRunner.run(sql, values)
 end
@@ -95,7 +96,7 @@ some things will need to happen.
   will need to change that...
   ticket will connect screening and customer
 
-  film.customer() - this will need to dig through the screening table and get the film id to go to the 
+  film.customer() - this will need to dig through the screening table and get the film id to go to the
 3. a count of sold tickets for the showing needs to be taken... hrm... that could be done in the table or it could be done with a join table.
 
 

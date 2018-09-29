@@ -3,12 +3,13 @@ require_relative("../db/sql_runner.rb")
 class Film
 
 attr_reader(:id)
-attr_accessor(:title, :price)
+attr_accessor(:title)
+#:price)
 
 def initialize(options)
   @id = options["id"].to_i
   @title = options["title"]
-  @price = options["price"].to_i
+  # @price = options["price"].to_i
 end
 
 # delete all
@@ -35,11 +36,11 @@ end
 # save
 def save()
   sql = "
-  INSERT INTO films( title, price )
-  VALUES( $1, $2)
+  INSERT INTO films( title )
+  VALUES( $1 )
   RETURNING id;"
 
-  values = [@title, @price]
+  values = [@title]
 
   result = SqlRunner.run(sql,values)
 
@@ -65,11 +66,10 @@ end
 
 def update()
   sql = "UPDATE films
-  SET( title, price)
-  = ($1, $2)
-  Where id = $3;"
+  SET title = $1
+  Where id = $2;"
 
-  values = [@title, @price, @id]
+  values = [@title, @id]
 
   SqlRunner.run(sql, values)
 end
