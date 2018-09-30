@@ -3,7 +3,7 @@ require_relative("../db/sql_runner.rb")
 class Screening
 
   attr_reader(:id)
-  attr_accessor(:film_id, :show_time, :price, :capacity)
+  attr_accessor(:film_id, :show_time, :price, :capacity, :tickets_sold)
 
 def initialize(options)
   @id = options["id"].to_i
@@ -11,6 +11,7 @@ def initialize(options)
   @show_time = options["show_time"]
   @price = options["price"].to_i
   @capacity = options["capacity"].to_i
+  @tickets_sold = options["tickets_sold"].to_i
   # will want to move price here and remove it from film -- matinees will be cheaper than evening shows
 end
 
@@ -38,11 +39,11 @@ end
 # save
 
 def save()
-  sql =  "INSERT INTO screenings (film_id, show_time, price, capacity)
-  VALUES ($1, $2, $3, $4)
+  sql =  "INSERT INTO screenings (film_id, show_time, price, capacity, tickets_sold)
+  VALUES ($1, $2, $3, $4, $5)
   RETURNING id;"
 
-  values = [@film_id, @show_time, @price, @capacity]
+  values = [@film_id, @show_time, @price, @capacity, @tickets_sold ]
 
   result = SqlRunner.run(sql, values)
   result_hash = result[0]
@@ -62,11 +63,11 @@ end
 
 def update()
  sql = "UPDATE screenings
- SET( film_id, show_time, price, capacity)
- = ($1, $2, $3, $4)
+ SET( film_id, show_time, price, capacity, tickets_sold)
+ = ($1, $2, $3, $4, $5)
  Where id = $5;"
 
- values = [@film_id, @show_time, @price, @capacity, @id]
+ values = [@film_id, @show_time, @price, @capacity, @tickets_sold, @id]
 
  SqlRunner.run(sql, values)
 end
@@ -107,13 +108,19 @@ end
 # check capacity for sale.
 
 def tickets_left?()
-  tickets_sold = customer_count()
-  tickets_sold < @capacity
+  #tickets_sold = customer_count()
+  @tickets_sold < @capacity
 end
+
+
 
 # most popular showing
 
-# attempt to oversell tickets
+# def self.most_popular()
+  # we can get each screening's customer count.  ticket count is easier.
+  # pull count for all, compare which has the highest?
+  # OR add a column to the screenings table and increment it for each ticket sold. then sql search in desc order by that column.
+# end
 
 
 # class end

@@ -85,13 +85,12 @@ end
 
 # film.customers
 
-# this functionality may be moved to screenings.
 def customers()
   #we have the film id. we want to show all the customers who are seeing that film.
 
   # we'll need to take the film id to the tickets table, and get the customer ids, then get the customer names  - while the following shows EVERYTHING we want in postico - for the actual feature, we don't need to pull back the film title, because we're calling it from the film, so we can stop at the join for screenings
 
-  # Full SQL 
+  # Full SQL
   # SELECT customers.name, screenings.id, films.title
   # FROM customers
   # INNER JOIN tickets
@@ -117,5 +116,32 @@ end
 def customer_count()
   customers().count()
 end
+
+# screenings
+def screenings()
+  sql = "SELECT screenings.*, films.title
+  FROM films
+  INNER JOIN screenings
+  ON screenings.film_id = films.id
+  WHERE film_id = $1;"
+
+  result = SqlRunner.run(sql, [@id])
+  Screening.map_items(result)
+
+end
+
+# most popular screening time.
+
+def most_popular()
+  # pull all the screenings for this film.
+  all_shows = screenings()
+  # gets a hash - pull a customer count for each showing.
+  for show in all_shows
+    p customer_count() # this is giving us the film's customer count - 8 not the showing's counts.
+  end
+  # all.each_char { |showing|  }
+
+end
+
 #end class
 end

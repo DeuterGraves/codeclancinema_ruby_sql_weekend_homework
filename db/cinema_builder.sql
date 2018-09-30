@@ -20,7 +20,8 @@ CREATE TABLE screenings(
   film_id INT8 REFERENCES films(id) ON DELETE CASCADE,
   show_time VARCHAR(255),
   price INT2,
-  capacity INT2
+  capacity INT2,
+  tickets_sold INT2
 );
 
 

@@ -100,16 +100,16 @@ class Customer
 
   #.screenings booked (list)
 
-  # def films()
-  #   sql = "SELECT films.* FROM films
-  #   INNER JOIN tickets
-  #   ON films.id = tickets.film_id
-  #   WHERE customer_id = $1;"
-  #
-  #   result = SqlRunner.run(sql, [@id])
-  #   Film.map_items(result)
-  #
-  # end
+  def screenings()
+    sql = "SELECT screenings.* FROM screenings
+    INNER JOIN tickets
+    ON screenings.id = tickets.screening_id
+    WHERE customer_id = $1;"
+
+    result = SqlRunner.run(sql, [@id])
+    Screening.map_items(result)
+
+  end
 
   # funds decrease
 

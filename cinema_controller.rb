@@ -216,7 +216,7 @@ p screening1.customers()
 #p customer3.films()
 # p customer2.films()
 
-binding.pry
+#binding.pry
 # # customer1.pays_for_ticket(film1)
 customer1.buys_ticket(screening1)
 customer2.buys_ticket(screening1)
@@ -225,7 +225,17 @@ customer4.buys_ticket(screening1)
 customer5.buys_ticket(screening1)
 customer5.buys_ticket(screening4)
 customer6.buys_ticket(screening4)
-customer7.buys_ticket(screening4) 
+customer7.buys_ticket(screening4)
+customer1.buys_ticket(screening2)
+customer2.buys_ticket(screening3)
+customer3.buys_ticket(screening4)
+customer4.buys_ticket(screening5)
+customer5.buys_ticket(screening6)
+customer5.buys_ticket(screening3)
+customer6.buys_ticket(screening2)
+customer7.buys_ticket(screening4)
+
+
 
 binding.pry
 puts "Well, whadda ya know?!"
