@@ -89,7 +89,9 @@ end
 def customers()
   #we have the film id. we want to show all the customers who are seeing that film.
 
-  # we'll need to take the film id to the tickets table, and get the customer ids, then get the customer names .
+  # we'll need to take the film id to the tickets table, and get the customer ids, then get the customer names  - while the following shows EVERYTHING we want in postico - for the actual feature, we don't need to pull back the film title, because we're calling it from the film, so we can stop at the join for screenings
+
+  # Full SQL 
   # SELECT customers.name, screenings.id, films.title
   # FROM customers
   # INNER JOIN tickets
