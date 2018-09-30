@@ -18,7 +18,6 @@ class Customer
     SqlRunner.run(sql)
   end
 
-
   # hash_result
 
   def self.hash_result(data)
@@ -114,23 +113,16 @@ class Customer
   # funds decrease
 
   def pays_for_ticket(screening)
-    # find the price
     value = screening.price
-    # find the funds
-    # this is being called ON customer so just call it's parameter directly.
     wallet = @funds
-    #subtract price from funds
     remaining_funds = wallet -= value
-    # update funds locally
     @funds = remaining_funds
-    # update funds in db
     update()
   end
 
   # buy ticket - funds decrease ticket created.... ooooooo
 
   def buys_ticket(screening)
-    # eventually this will need something for counting capacity.
     if screening.tickets_left?() == true
       pays_for_ticket(screening)
       ticket = Ticket.new({"customer_id" => @id,

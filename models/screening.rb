@@ -12,7 +12,6 @@ def initialize(options)
   @price = options["price"].to_i
   @capacity = options["capacity"].to_i
   @tickets_sold = options["tickets_sold"].to_i
-  # will want to move price here and remove it from film -- matinees will be cheaper than evening shows
 end
 
 # delete all
@@ -82,14 +81,6 @@ def delete()
 end
 
 def customers()
-  #list of customers at a screening =
-  #tickets table has screening id and customer id
-
-  #we have the screening id when we call this on a screening. we want to show all the customers who are seeing that screening.
-
-  # we'll need to take the screening id to the tickets table, and get the customer ids, then get the customer names .
-
-  #INNERJOIN!!!
   sql = "SELECT customers.* FROM customers
   INNER JOIN tickets
   ON tickets.customer_id = customers.id
@@ -139,18 +130,3 @@ end
 
 # class end
 end
-
-=begin
-some things will need to happen.
-1. price needs to be shifted here
-  this will break price and decrease wallet - so fix that.
-2. when a ticket is purchased - it's really a screening that's purchased, not the film.
-  will need to change that...
-  ticket will connect screening and customer
-
-  film.customer() - this will need to dig through the screening table and get the film id to go to the
-3. a count of sold tickets for the showing needs to be taken... hrm... that could be done in the table or it could be done with a join table.
-
-
-
-=end

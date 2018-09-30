@@ -4,12 +4,10 @@ class Film
 
 attr_reader(:id)
 attr_accessor(:title)
-#:price)
 
 def initialize(options)
   @id = options["id"].to_i
   @title = options["title"]
-  # @price = options["price"].to_i
 end
 
 # delete all
@@ -49,7 +47,7 @@ def save()
   result_hash = result[0]
   # out of it, grab the id value and set that to a variable
   string_id = result_hash["id"]
-  # convert it to an interger and save it as the id
+  # convert it to an integer and save it as the id
   @id = string_id.to_i
 
 end
@@ -102,17 +100,6 @@ def customers()
 
   # we'll need to take the film id to the tickets table, and get the customer ids, then get the customer names  - while the following shows EVERYTHING we want in postico - for the actual feature, we don't need to pull back the film title, because we're calling it from the film, so we can stop at the join for screenings
 
-  # Full SQL
-  # SELECT customers.name, screenings.id, films.title
-  # FROM customers
-  # INNER JOIN tickets
-  # ON tickets.customer_id = customers.id
-  #INNER JOIN screenings
-  #ON tickets.screening_id = screenings.id
-  # INNER JOIN films
-  # ON screenings.film_id = films.id
-
-  #INNERJOIN!!!
   sql = "SELECT customers.* FROM customers
   INNER JOIN tickets
   ON tickets.customer_id = customers.id
