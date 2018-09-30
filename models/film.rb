@@ -57,9 +57,21 @@ end
 # read all
 
 def self.find_all()
-  sql = " SELECT * from films;"
+  sql = " SELECT * FROM films;"
   data = SqlRunner.run(sql)
   Film.map_items(data)
+end
+
+# find by id
+def self.find(id)
+  sql = " SELECT * FROM films
+  WHERE id = $1;"
+
+  values = [id]
+
+  data = SqlRunner.run(sql, values)
+  film = Film.hash_result(data)
+  film.title
 end
 
 # update
