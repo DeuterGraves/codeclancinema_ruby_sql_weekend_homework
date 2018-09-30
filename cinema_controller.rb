@@ -31,22 +31,37 @@ customer3 = Customer.new({
 
 customer4 = Customer.new({
   "name" => "Sean Whithlewhite",
-  "funds" => 40
+  "funds" => 60
   })
 
 customer5 = Customer.new({
   "name" => "Robert Jones",
-  "funds" => 40
+  "funds" => 30
   })
 
 customer6 = Customer.new({
   "name" => "Terrance Northrup",
-  "funds" => 40
+  "funds" => 45
   })
 
 customer7 = Customer.new({
   "name" => "Bea Whitty",
-  "funds" => 40
+  "funds" => 35
+  })
+
+customer8 = Customer.new({
+  "name" => "Rhiannon Davies",
+  "funds" => 25
+  })
+
+customer9 = Customer.new({
+  "name" => "David Antwhipple",
+  "funds" => 55
+  })
+
+customer10 = Customer.new({
+  "name" => "Pippa Brighampton",
+  "funds" => 50
   })
 
 
@@ -57,6 +72,9 @@ customer4.save()
 customer5.save()
 customer6.save()
 customer7.save()
+customer8.save()
+customer9.save()
+customer10.save()
 
   # build and save films
 film1 = Film.new({
@@ -150,42 +168,42 @@ screening1 = Screening.new({
   "film_id" => film1.id,
   "show_time" => "11:40",
   "price" => 1,
-  "capacity" => 4
+  "capacity" => 10
   })
 
 screening2 = Screening.new({
   "film_id" => film2.id,
   "show_time" => "11:40",
   "price" => 6,
-  "capacity" => 4
+  "capacity" => 10
   })
 
 screening3 = Screening.new({
   "film_id" => film3.id,
   "show_time" => "11:40",
   "price" => 6,
-  "capacity" => 4
+  "capacity" => 10
   })
 
 screening4 = Screening.new({
   "film_id" => film1.id,
   "show_time" => "20:30",
   "price" => 2,
-  "capacity" => 4
+  "capacity" => 10
   })
 
 screening5 = Screening.new({
   "film_id" => film2.id,
   "show_time" => "20:00",
   "price" => 10,
-  "capacity" => 4
+  "capacity" => 10
   })
 
 screening6 = Screening.new({
   "film_id" => film3.id,
   "show_time" => "21:00",
   "price" => 10,
-  "capacity" => 4
+  "capacity" => 10
   })
 
 screening1.save()
@@ -222,16 +240,17 @@ customer1.buys_ticket(screening1)
 customer1.buys_ticket(screening2)
 customer1.buys_ticket(screening3)
 
-customer2.buys_ticket(screening1)
-customer2.buys_ticket(screening3)
+customer2.buys_ticket(screening4)
 customer2.buys_ticket(screening5)
+customer2.buys_ticket(screening6)
 
+customer3.buys_ticket(screening2)
+customer3.buys_ticket(screening3)
 customer3.buys_ticket(screening4)
-customer3.buys_ticket(screening6)
 
-customer4.buys_ticket(screening2)
+customer4.buys_ticket(screening1)
 customer4.buys_ticket(screening4)
-customer4.buys_ticket(screening5)
+customer4.buys_ticket(screening6)
 
 customer5.buys_ticket(screening4)
 customer5.buys_ticket(screening5)
@@ -241,9 +260,21 @@ customer6.buys_ticket(screening2)
 customer6.buys_ticket(screening3)
 customer6.buys_ticket(screening6)
 
-customer7.buys_ticket(screening2)
+customer7.buys_ticket(screening3)
 customer7.buys_ticket(screening4)
-customer7.buys_ticket(screening6)
+customer7.buys_ticket(screening5)
+
+customer8.buys_ticket(screening3)
+customer8.buys_ticket(screening5)
+customer8.buys_ticket(screening6)
+
+customer9.buys_ticket(screening1)
+customer9.buys_ticket(screening2)
+customer9.buys_ticket(screening6)
+
+customer10.buys_ticket(screening4)
+customer10.buys_ticket(screening5)
+customer10.buys_ticket(screening6)
 
 
 

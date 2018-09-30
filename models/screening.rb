@@ -120,11 +120,21 @@ end
 
 # most popular showing
 
-# def self.most_popular()
+def self.most_popular()
+  sql = "SELECT screenings.*, films.title
+FROM films
+INNER JOIN screenings
+ON screenings.film_id = films.id
+ORDER BY screenings.tickets_sold DESC;"
+
+result = SqlRunner.run(sql)
+Screening.map_items(result)
+
+
   # we can get each screening's customer count.  ticket count is easier.
   # pull count for all, compare which has the highest?
   # OR add a column to the screenings table and increment it for each ticket sold. then sql search in desc order by that column.
-# end
+end
 
 
 # class end

@@ -133,14 +133,18 @@ end
 # most popular screening time.
 
 def most_popular()
-  # pull all the screenings for this film.
-  all_shows = screenings()
-  # gets a hash - pull a customer count for each showing.
-  for show in all_shows
-    p customer_count() # this is giving us the film's customer count - 8 not the showing's counts.
-  end
-  # all.each_char { |showing|  }
+  sql = "SELECT screenings.*, films.title
+  FROM films
+  INNER JOIN screenings
+  ON screenings.film_id = films.id
+  WHERE film_id = $1
+  ORDER BY screenings.tickets_sold DESC;"
 
+  result = SqlRunner.run(sql, [@id])
+  #gives all sorted with most sold 1st
+  screenings = Screening.map_items(result)
+  #pulls out the show_time from the first result in that array
+  screenings.first().show_time
 end
 
 #end class
