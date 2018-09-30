@@ -93,6 +93,9 @@ film3.save()
 
 
   # set up and save tickets
+
+  # I'm holding off on changing anything about tickets - when a customer purchases a screening, it'll create a ticket, that code is updated and working correctly. no need to preload tickets.
+
 # ticket1 = Ticket.new({
 #   "customer_id" => customer1.id,
 #   "film_id" => film1.id
@@ -199,7 +202,7 @@ customer1.name = "Rebecca Davenport"
 customer1.update()
 customer2.name = "Susie Broadreach"
 customer2.update()
-# # ticket4.film_id = 69
+# # ticket4.screening_id = 69
 # # ticket4.update()
 # film2.delete()
 # ticket8.delete()
@@ -208,7 +211,7 @@ screening1.film_id = film1.id
 screening1.update()
 # screening1.delete()
 
-#p film1.customers()
+p screening1.customers()
 # p film5.customers()
 #p customer3.films()
 # p customer2.films()
@@ -216,6 +219,7 @@ screening1.update()
 binding.pry
 # # customer1.pays_for_ticket(film1)
 customer1.buys_ticket(screening1)
+customer2.buys_ticket(screening1)
 
 binding.pry
 puts "Well, whadda ya know?!"

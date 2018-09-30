@@ -80,6 +80,26 @@ def delete()
   SqlRunner.run(sql, values)
 end
 
+def customers()
+  #list of customers at a screening =
+  #tickets table has screening id and customer id
+
+  #we have the screening id when we call this on a screening. we want to show all the customers who are seeing that screening.
+
+  # we'll need to take the screening id to the tickets table, and get the customer ids, then get the customer names .
+
+  #INNERJOIN!!!
+  sql = "SELECT customers.* FROM customers
+  INNER JOIN tickets
+  ON tickets.customer_id = customers.id
+  WHERE screening_id = $1;"
+
+  result = SqlRunner.run(sql, [@id])
+  Customer.map_items(result)
+end
+
+# number of tickets sold for a screening ^ length of that probab
+
 # most popular showing
 
 # attempt to oversell tickets
