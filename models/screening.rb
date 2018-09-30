@@ -65,7 +65,7 @@ def update()
  sql = "UPDATE screenings
  SET( film_id, show_time, price, capacity, tickets_sold)
  = ($1, $2, $3, $4, $5)
- Where id = $5;"
+ Where id = $6;"
 
  values = [@film_id, @show_time, @price, @capacity, @tickets_sold, @id]
 
@@ -110,6 +110,10 @@ end
 def tickets_left?()
   #tickets_sold = customer_count()
   @tickets_sold < @capacity
+end
+
+def ticket_sold()
+  @tickets_sold += 1
 end
 
 

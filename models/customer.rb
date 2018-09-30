@@ -136,6 +136,8 @@ class Customer
       ticket = Ticket.new({"customer_id" => @id,
         "screening_id" => screening.id})
         ticket.save()
+        screening.ticket_sold()
+        screening.update()
     else
         puts "I'm sorry, there are no tickets remaining for that showing."
       end
