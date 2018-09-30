@@ -86,20 +86,30 @@ end
 # film.customers
 
 # this functionality may be moved to screenings.
-# def customers()
-#   #we have the film id. we want to show all the customers who are seeing that film.
-#
-#   # we'll need to take the film id to the tickets table, and get the customer ids, then get the customer names .
-#
-#   #INNERJOIN!!!
-#   sql = "SELECT customers.* FROM customers
-#   INNER JOIN tickets
-#   ON tickets.customer_id = customers.id
-#   WHERE film_id = $1;"
-#
-#   result = SqlRunner.run(sql, [@id])
-#   Customer.map_items(result)
-# end
+def customers()
+  #we have the film id. we want to show all the customers who are seeing that film.
+
+  # we'll need to take the film id to the tickets table, and get the customer ids, then get the customer names .
+  # SELECT customers.name, screenings.id, films.title
+  # FROM customers
+  # INNER JOIN tickets
+  # ON tickets.customer_id = customers.id
+  #INNER JOIN screenings
+  #ON tickets.screening_id = screenings.id
+  # INNER JOIN films
+  # ON screenings.film_id = films.id
+
+  #INNERJOIN!!!
+  sql = "SELECT customers.* FROM customers
+  INNER JOIN tickets
+  ON tickets.customer_id = customers.id
+  INNER JOIN screenings
+  ON tickets.screening_id = screenings.id
+  WHERE film_id = $1;"
+
+  result = SqlRunner.run(sql, [@id])
+  Customer.map_items(result)
+end
 
 #number of customers going to see the film.
 def customer_count()

@@ -222,7 +222,10 @@ customer1.buys_ticket(screening1)
 customer2.buys_ticket(screening1)
 customer3.buys_ticket(screening1)
 customer4.buys_ticket(screening1)
-customer5.buys_ticket(screening1) 
+customer5.buys_ticket(screening1)
+customer5.buys_ticket(screening4)
+customer6.buys_ticket(screening4)
+customer7.buys_ticket(screening4) 
 
 binding.pry
 puts "Well, whadda ya know?!"
