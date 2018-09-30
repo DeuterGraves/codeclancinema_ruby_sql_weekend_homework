@@ -100,6 +100,9 @@ end
 
 # number of tickets sold for a screening ^ length of that probab
 
+def customer_count()
+  customers().count()
+end
 # most popular showing
 
 # attempt to oversell tickets
