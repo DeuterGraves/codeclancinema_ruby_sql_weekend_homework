@@ -208,14 +208,14 @@ screening1.film_id = film1.id
 screening1.update()
 # screening1.delete()
 
-p film1.customers()
+#p film1.customers()
 # p film5.customers()
-p customer3.films()
+#p customer3.films()
 # p customer2.films()
 
 binding.pry
 # # customer1.pays_for_ticket(film1)
-customer1.buys_ticket(film3)
+customer1.buys_ticket(screening1)
 
 binding.pry
 puts "Well, whadda ya know?!"

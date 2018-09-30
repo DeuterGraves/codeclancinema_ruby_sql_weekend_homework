@@ -96,9 +96,9 @@ end
 
 # funds decrease
 
-def pays_for_ticket(film)
+def pays_for_ticket(screening)
   # find the price
-  value = film.price
+  value = screening.price
   # find the funds
   # this is being called ON customer so just call it's parameter directly.
   wallet = @funds
@@ -112,10 +112,11 @@ end
 
 # buy ticket - funds decrease ticket created.... ooooooo
 
-def buys_ticket(film)
-  pays_for_ticket(film)
+def buys_ticket(screening)
+  # eventually this will need something for counting capacity.
+  pays_for_ticket(screening)
   ticket = Ticket.new({"customer_id" => @id,
-    "film_id" => film.id})
+    "screening_id" => screening.id})
     ticket.save()
 end
 
