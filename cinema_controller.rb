@@ -220,6 +220,9 @@ binding.pry
 # # customer1.pays_for_ticket(film1)
 customer1.buys_ticket(screening1)
 customer2.buys_ticket(screening1)
+customer3.buys_ticket(screening1)
+customer4.buys_ticket(screening1)
+customer5.buys_ticket(screening1) 
 
 binding.pry
 puts "Well, whadda ya know?!"

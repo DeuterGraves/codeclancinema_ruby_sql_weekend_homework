@@ -103,6 +103,14 @@ end
 def customer_count()
   customers().count()
 end
+
+# check capacity for sale.
+
+def tickets_left?()
+  tickets_sold = customer_count()
+  tickets_sold < @capacity
+end
+
 # most popular showing
 
 # attempt to oversell tickets
